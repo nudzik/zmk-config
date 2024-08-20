@@ -13,7 +13,7 @@
 #define LWR 2
 #define ADJ 3
 
-#define AS(keycode) &as LS(keycode) keycode
+// #define AS(keycode) &as LS(keycode) keycode
 / {
         behaviors {
             as: auto_shift {
