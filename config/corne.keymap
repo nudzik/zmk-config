@@ -102,6 +102,11 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
+
+        Pipe {
+            bindings = <&kp PIPE>;
+            key-positions = <33 34>;
+        };
     };
 };
 
