@@ -103,9 +103,49 @@
             bindings = <&kp ESC>;
         };
 
-        Pipe {
+        combo_Pipe {
             bindings = <&kp PIPE>;
             key-positions = <33 34>;
+        };
+
+        a_left {
+            bindings = <&kp LEFT>;
+            key-positions = <22 21>;
+        };
+
+        a_right {
+            bindings = <&kp RIGHT>;
+            key-positions = <22 23>;
+        };
+
+        a_up {
+            bindings = <&kp UP_ARROW>;
+            key-positions = <10 22>;
+        };
+
+        a_down {
+            bindings = <&kp DOWN>;
+            key-positions = <22 34>;
+        };
+
+        a_alt {
+            bindings = <&kp LEFT_ALT>;
+            key-positions = <25 26>;
+        };
+
+        a_lbrc {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <19 20>;
+        };
+
+        a_rbrc {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <20 21>;
+        };
+
+        a_caps {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <29 28>;
         };
     };
 };
