@@ -26,7 +26,7 @@
       <&macro_param_1to1 &macro_tap &kp MACRO_PLACEHOLDER>,
       <&macro_release &kp LSHFT>;
   };
-    };
+   
   as_ht: autoshift_hold_tap {
     compatible = "zmk,behavior-hold-tap";
     label = "AUTOSHIFT_HOLD_TAP";
@@ -51,6 +51,7 @@
       <&macro_param_1to2>,
       <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
   };
+};
     keymap {
         compatible = "zmk,keymap";
 
