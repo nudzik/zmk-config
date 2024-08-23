@@ -17,45 +17,44 @@
 #define AS(keycode) &as LS(keycode) keycode
 
 / {
-
-behaviors {
-
-  shifted: macro_shifted_kp {
-    #binding-cells = <1>;
-    label = "MACRO_SHIFTED_KP";
-    compatible = "zmk,behavior-macro-one-param";
-    bindings =
-      <&macro_press &kp LSHFT>,
-      <&macro_param_1to1 &macro_tap &kp MACRO_PLACEHOLDER>,
-      <&macro_release &kp LSHFT>;
-  };
-   
-  as_ht: autoshift_hold_tap {
-    compatible = "zmk,behavior-hold-tap";
-    label = "AUTOSHIFT_HOLD_TAP";
-    #binding-cells = <2>;
-    tapping-term-ms = <135>;
-    flavor = "tap-preferred";
-    bindings = <&shifted>, <&kp>;
+  behaviors {
+    as_ht: autoshift_hold_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "AUTOSHIFT_HOLD_TAP";
+      #binding-cells = <2>;
+      tapping-term-ms = <200>;
+      bindings = <&shifted>, <&kp>;
+    };
   };
 
-  as: autoshift {
-    compatible = "zmk,behavior-macro-one-param";
-    #binding-cells = <1>;
-    label = "AUTOSHIFT_KP";
-    bindings =
-      <&macro_press>,
-      <&macro_param_1to1>,
-      <&macro_param_1to2>,
-      <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>,
-      <&macro_pause_for_release>,
-      <&macro_release>,
-      <&macro_param_1to1>,
-      <&macro_param_1to2>,
-      <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
-		};
-	};
-};
+  macros {
+    shifted: macro_shifted_kp {
+      #binding-cells = <1>;
+      label = "MACRO_SHIFTED_KP";
+      compatible = "zmk,behavior-macro-one-param";
+      bindings =
+        <&macro_press &kp LSHFT>,
+        <&macro_param_1to1 &macro_tap &kp MACRO_PLACEHOLDER>,
+        <&macro_release &kp LSHFT>;
+    };
+
+    as: autoshift {
+      compatible = "zmk,behavior-macro-one-param";
+      #binding-cells = <1>;
+      label = "AUTOSHIFT_KP";
+      bindings =
+        <&macro_press>,
+        <&macro_param_1to1>,
+        <&macro_param_1to2>,
+        <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>,
+        <&macro_pause_for_release>,
+        <&macro_release>,
+        <&macro_param_1to1>,
+        <&macro_param_1to2>,
+        <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
+    };
+  };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -67,9 +66,9 @@ behaviors {
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &as Q Q  &kp W  &kp E     &kp R  &kp T        &kp Z    &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp LSHFT  &kp A    &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Y    &kp X  &kp C     &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RET
+&kp TAB    &as Q  &as W  &as E     &as R  &as T        &as Z    &as U  &as I      &as O    &as P     &kp BSPC
+&kp LSHFT  &as A    &as S  &as D     &as F  &as G        &as H    &as J  &as K      &as L    &as SEMI  &as SQT
+&kp LCTRL  &as Y    &as X  &as C     &as V  &as B        &as N    &as M  &as COMMA  &as DOT  &as FSLH  &kp RET
                            &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
             >;
         };
