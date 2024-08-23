@@ -1,0 +1,112 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+// See https://zmk.netlify.app/docs/behaviors/power
+#include <dt-bindings/zmk/ext_power.h>
+
+// See https://zmkfirmware.dev/docs/behaviors/lighting
+#include <dt-bindings/zmk/rgb.h>
+
+#define DEFAULT 0
+#define SYM 1
+#define NAV 2
+#define FN 3
+#define NUM 4
+
+#define AS(keycode) &as LS(keycode) keycode
+
+/ {
+        behaviors {
+            as: auto_shift {
+                compatible = "zmk,behavior-hold-tap";
+                label = "AUTO_SHIFT";
+                #binding-cells = <2>;
+                tapping_term_ms = <135>;
+                quick_tap_ms = <0>;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&kp>;
+            };
+        };
+
+
+        keymap {
+                compatible = "zmk,keymap";
+
+                default_layer {
+// -----------------------------------------------------------------------------------------
+// |  Q  |  W  |  E  |  R  |  T   |   |  Y  |  U   |  I  |  O  |  P  |
+// |  A  |  S  |  D  |  F  |  G   |   |  H  |  J   |  K  |  L  | ENT |
+// |  Z  |  X  |  C  |  V  |  B   |   |  N  |  M   |  ,  |  .  |  /  |
+//             | CTL | SYM | SPC  |   | SPC | SYM  | SHT |
+                        bindings = <
+   AS(Q) AS(W) AS(E) AS(R) AS(T)        AS(Y) AS(U) AS(I)     AS(O)   AS(P)
+   AS(A) AS(S) AS(D) AS(F) AS(G)        AS(H) AS(J) AS(K)     AS(L)   &mt RGUI RET
+   AS(Z) AS(X) AS(C) AS(V) AS(B)        AS(N) AS(M) &kp COMMA &kp DOT AS(FSLH)
+     &sk LCTRL &sl SYM &lt NAV SPACE    &lt NAV SPACE &sl SYM &sk RSHFT
+                        >;
+                };
+
+                sym_layer {
+// -----------------------------------------------------------------------------------------
+// |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
+// |     |     |     |     |     |   |  -  |  =  |  {  |  }  | "|" |
+// |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |
+//             | GUI |     | SPC |   | ENT |     | ALT |
+                        bindings = <
+   AS(N1) AS(N2) AS(N3) AS(N4) AS(N5)                  AS(N6)  AS(N7) AS(N8)  AS(N9)  AS(N0)
+   &kp GRAVE &kp LPAR &kp RPAR &lt NUM SQT &kp EQUAL   &kp BSLH &lt FN MINUS &kp LBKT &kp RBKT &kp SEMI
+   &kp TILDE &kp LT   &kp GT   &kp DQT     &kp PLUS    &kp PIPE &kp UNDER    &kp LBRC &kp RBRC &kp COLN
+                            &trans &trans  &kp BSPC    &kp BSPC &trans &trans
+                        >;
+                };
+
+                nav_layer {
+// -----------------------------------------------------------------------------------------
+// |BTCLR|     | ESC |  ~   |     |   | TAB | HOME |  UP  | END | DEL  |
+// | BT1 | GUI | ALT | CTRL | NUM |   |  /  | LEFT | DOWN | RGT | BKSP |
+// | BT2 |     |     |      |     |   |  \  | ENT  |      |     |      |
+//             |     |      |     |   |     |      |      |
+                        bindings = <
+   &kp RG(N1) &kp RG(N2) &kp RG(N3) &kp RG(N4) &kp RG(N5)   &kp HOME      &kp PGUP  &kp PGDN  &kp END       &none 
+   &none      &none      &kp RG(O)  AS(TAB)    &kp ESC      &kp LEFT      &kp DOWN  &kp UP    &kp RIGHT     &none
+   &none      &none      &none      &kp DEL    &kp CAPS     &kp LA(LEFT)  &none     &none     &kp LA(RIGHT) &none
+                            &trans   &trans    &trans       &kp BSPC   &trans   &trans
+                        >;
+                };
+
+                fn_layer {
+// -----------------------------------------------------------------------------------------
+// |BTCLR|     | ESC |  ~   |     |   | TAB | HOME |  UP  | END | DEL  |
+// | BT1 | GUI | ALT | CTRL | NUM |   |  /  | LEFT | DOWN | RGT | BKSP |
+// | BT2 |     |     |      |     |   |  \  | ENT  |      |     |      |
+//             |     |      |     |   |     |      |      |
+                        bindings = <
+   &kp F1 &kp F2 &kp F3 &kp F4  &kp F5    &ext_power EP_TOG  &trans &trans  &rgb_ug RGB_TOG  &trans
+   &kp F6 &kp F7 &kp F8 &kp F9  &kp F10   &ext_power EP_ON   &trans &trans  &rgb_ug RGB_EFF  &trans
+   &trans &trans &trans &kp F11 &kp F12   &ext_power EP_OFF  &trans &trans  &rgb_ug RGB_EFR  &bootloader
+              &trans   &trans    &trans       &kp BSPC   &trans   &trans
+                        >;
+                };
+
+                num_layer {
+// -----------------------------------------------------------------------------------------
+// |BTCLR|     | ESC |  ~   |     |   | TAB | HOME |  UP  | END | DEL  |
+// | BT1 | GUI | ALT | CTRL | NUM |   |  /  | LEFT | DOWN | RGT | BKSP |
+// | BT2 |     |     |      |     |   |  \  | ENT  |      |     |      |
+//             |     |      |     |   |     |      |      |
+                        bindings = <
+   &bt BT_CLR &rgb_ug RGB_TOG &trans &trans &ext_power EP_TOG   &kp KP_MULTIPLY &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_DIVIDE 
+   &bt BT_NXT &rgb_ug RGB_EFF &trans &trans &ext_power EP_ON    &kp KP_MINUS    &kp KP_N4 &kp KP_N5 &kp KP_N6 &trans 
+   &bootloader &rgb_ug RGB_EFR &trans &trans &ext_power EP_OFF   &kp KP_EQUAL    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_PLUS 
+                                   &trans   &trans    &trans    &trans          &kp N0    &kp DOT
+                        >;
+                };
+        };
+};
