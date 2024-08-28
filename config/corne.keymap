@@ -175,8 +175,8 @@
 
         a_caps {
             bindings = <&kp CAPSLOCK>;
-            key-positions = <29 28>;
-            timeout-ms = <200>;
+            key-positions = <29 28 27>;
+            require-prior-idle-ms = <125>;
         };
     };
 };
