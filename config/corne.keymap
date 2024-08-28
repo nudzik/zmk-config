@@ -176,7 +176,7 @@
         a_caps {
             bindings = <&kp CAPSLOCK>;
             key-positions = <29 28>;
-            timeout-ms = <150>;
+            timeout-ms = <200>;
         };
     };
 };
