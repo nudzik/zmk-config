@@ -8,7 +8,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/mouse.h>
 
 #define DEFAULT 0
 #define RSE 1
@@ -177,6 +176,7 @@
         a_caps {
             bindings = <&kp CAPSLOCK>;
             key-positions = <29 28>;
+            require-prior-idle-ms = <100>;
         };
     };
 };
