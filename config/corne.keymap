@@ -187,6 +187,11 @@
             key-positions = <29 28 27>;
             require-prior-idle-ms = <125>;
         };
+
+        exitgame {
+            bindings = <&to 0>;
+            key-positions = <13 14 15>;
+        };
     };
 };
 
