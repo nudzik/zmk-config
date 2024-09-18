@@ -140,11 +140,13 @@
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&kp ESC>;
+            require-prior-idle-ms = <125>;
         };
 
         combo_Pipe {
             bindings = <&kp PIPE>;
             key-positions = <33 34>;
+            require-prior-idle-ms = <125>;
         };
 
         a_left {
@@ -175,11 +177,13 @@
         a_lbrc {
             bindings = <&kp LEFT_BRACKET>;
             key-positions = <19 20>;
+            require-prior-idle-ms = <125>;
         };
 
         a_rbrc {
             bindings = <&kp RIGHT_BRACKET>;
             key-positions = <20 21>;
+            require-prior-idle-ms = <125>;
         };
 
         a_caps {
@@ -191,6 +195,7 @@
         exitgame {
             bindings = <&to 0>;
             key-positions = <13 14 15>;
+            require-prior-idle-ms = <125>;
         };
     };
 };
