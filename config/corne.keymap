@@ -63,6 +63,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+        display-name = "default";
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Z  |  U   |  I  |  O  |  P  | BKSP |
             // | SHFT |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -78,6 +79,7 @@
         };
 
         lower_layer {
+        display-name = "lower_layer";
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | UP |  DWN | RGT |     |      |
@@ -93,6 +95,7 @@
         };
 
         raise_layer {
+        display-name = "raise_layer";
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
             // | SHFT |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -108,6 +111,7 @@
         };
 
         adjust_layer {
+        display-name = "adjust_layer";
             // -----------------------------------------------------------------------------------------
             // |  Boot |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
             // | SHFT |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -123,6 +127,7 @@
         };
 
         game {
+        display-name = "game";
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Z    &kp U  &kp I      &kp O    &kp P     &kp BSPC
 &kp LSHFT  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
@@ -132,6 +137,7 @@
         };
 
         de_layer {
+        display-name = "de_layer";
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Z    &kp U  &kp I     &kp O      &kp P     &kp BSPC
 &kp CAPS   &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K     &kp L      &kp SEMI  &kp APOS
