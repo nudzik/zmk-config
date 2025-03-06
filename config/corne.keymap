@@ -219,6 +219,11 @@
             key-positions = <13 14 15>;
             require-prior-idle-ms = <125>;
         };
+
+        de_pipe {
+            bindings = <&kp DE_PIPE>;
+            key-positions = <24 33 34>;
+        };
     };
 };
 
