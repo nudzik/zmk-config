@@ -17,6 +17,8 @@
 
 // #define AS(keycode) &as LS(keycode) keycode
 
+&sl { release-after-ms = <2000>; };
+
 / {
     behaviors {
         as_ht: autoshift_hold_tap {
@@ -31,7 +33,6 @@
             flavor = "tap-preferred";
         };
     };
-
 
     macros {
         shifted: macro_shifted_kp {
@@ -76,7 +77,7 @@
 &as TAB    &as Q  &as W  &as E     &as R  &as T        &as Z    &as U  &as I      &as O    &as P     &kp BSPC
 &kp LSHFT  &as A  &as S  &as D     &as F  &as G        &as H    &as J  &as K      &as L    &as SEMI  &as SQT
 &kp LCTRL  &as Y  &as X  &as C     &as V  &as B        &as N    &as M  &as COMMA  &as DOT  &as FSLH  &kp RET
-                         &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
+                         &kp LGUI  &sl 1  &kp SPACE    &kp RET  &sl 2  &kp RALT
             >;
         };
 
