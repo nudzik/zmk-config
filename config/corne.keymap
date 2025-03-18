@@ -32,6 +32,10 @@
         };
     };
 
+&sl {
+    release-after-ms = <2000>;
+};
+
     macros {
         shifted: macro_shifted_kp {
             #binding-cells = <1>;
