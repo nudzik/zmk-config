@@ -224,14 +224,14 @@
             bindings = <&to 0>;
             key-positions = <13 14 15>;
             require-prior-idle-ms = <125>;
-            timeout-ms = <50>;
+            
         };
 
         de_pipe {
             bindings = <&kp DE_PIPE>;
             key-positions = <24 33 34>;
             require-prior-idle-ms = <200>;
-            timeout-ms = <50>;
+            
         };
     };
 };
