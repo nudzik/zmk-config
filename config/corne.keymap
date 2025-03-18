@@ -234,6 +234,8 @@
         de_pipe {
             bindings = <&kp DE_PIPE>;
             key-positions = <24 33 34>;
+            require-prior-idle-ms = <200>;
+            timeout-ms = <50>;
         };
     };
 };
