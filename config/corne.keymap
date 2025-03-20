@@ -11,9 +11,12 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
-#define RSE 1
-#define LWR 2
-#define ADJ 3
+#define GAME 1
+#define RISE 2
+#define LOWER 3
+#define ADJUST 4
+#define DE 5
+
 
 
 
@@ -149,6 +152,9 @@
 &kp LCTRL       &kp Y  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp MINUS  &kp RET
                               &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
             >;
+        };
+         extra_1 {
+            status = "reserved";
         };
     };
 };
