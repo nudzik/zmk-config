@@ -11,15 +11,14 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
-#define GME 1
-#define DEU 2
-#define RSE 3
-#define LWR 4
-#define ADJ 5
+#define GAME 1
+#define DEUTSCH 2
+#define RAISE 3
+#define LOWER 4
+#define ADJUST 5
 
-// #define AS(keycode) &as LS(keycode) keycode
 
-&sl { release-after-ms = <2000>; };
+
 
 / {
     behaviors {
@@ -36,6 +35,9 @@
         };
 
     };
+    &sl { 
+    release-after-ms = <2000>; 
+};
 
     macros {
         shifted: macro_shifted_kp {
@@ -97,7 +99,7 @@
         de_layer {
             display-name = "de_layer";
             bindings = <
-&kp TAB         &kp Q     &kp W  &kp E     &kp R  &kp T        &kp Y  &kp U  &kp I      &kp O    &kp P      &kp BSPC
+&kp TAB         &kp Q     &kp W  &kp E     &kp R   &kp T        &kp Y  &kp U  &kp I      &kp O    &kp P      &kp BSPC
 &kp LSHIFT  &kp A     &kp S  &kp D     &kp F  &kp G        &kp H     &kp J  &kp K      &kp L    &kp SEMI   &kp APOS
 &kp LCTRL       &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N     &kp M  &kp COMMA  &kp DOT  &kp MINUS  &kp RET
                                  &kp LGUI  &sl 3  &kp SPACE    &kp RET   &sl 4  &kp RALT
@@ -148,13 +150,24 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&bootloader  &sys_reset    &trans        &studio_unlock  &to 2         &to 1           &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
+&bootloader  &sys_reset    &trans        &studio_unlock  &to 2 &to 1           &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
 &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4    &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
 &kp LCTRL    &out OUT_USB  &out OUT_BLE  &trans          &trans        &trans          &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
                                          &kp LGUI        &trans        &kp SPACE       &kp RET    &trans     &kp RALT
             >;
         };
 
+        extra_1 {
+            status = "reserved";
+        };
+
+        extra_2 {
+            status = "reserved";
+        };
+
+        extra_3 {
+            status = "reserved";
+        };
     };
 };
 
