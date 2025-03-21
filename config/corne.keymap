@@ -109,10 +109,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB         &as N1  &as N2  &as N3    &as N4  &kp N5       &as N6    &as N7   &as N8    &as N9     &as N0      &kp BSPC
-&kp LEFT_SHIFT  &kp F1  &kp F2  &kp F3    &kp F4  &kp F5       &kp LEFT  &kp UP   &kp DOWN  &kp RIGHT  &kp INSERT  &kp PRINTSCREEN
-&kp LCTRL       &kp F6  &kp F7  &kp F8    &kp F9  &kp F10      &kp F11   &kp F12  &trans    &trans     &trans      &kp DEL
-                                &kp LGUI  &trans  &kp SPACE    &kp RET   &trans   &kp RALT
+&kp TAB         &as N1  &as N2  &as N3    &as N4  &kp KP_NUMBER_5    &as N6    &as N7   &as N8    &as N9     &as N0      &kp BSPC
+&kp LEFT_SHIFT  &kp F1  &kp F2  &kp F3    &kp F4  &kp F5             &kp LEFT  &kp UP   &kp DOWN  &kp RIGHT  &kp INSERT  &kp PRINTSCREEN
+&kp LCTRL       &kp F6  &kp F7  &kp F8    &kp F9  &kp F10            &kp F11   &kp F12  &trans    &trans     &trans      &kp DEL
+                                &kp LGUI  &trans  &kp SPACE          &kp RET   &trans   &kp RALT
             >;
         };
 
@@ -143,7 +143,7 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&bootloader  &sys_reset    &trans        &studio_unlock  &to 5         &tog 1          &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
+&bootloader  &sys_reset    &trans        &studio_unlock  &to 2         &to 1           &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
 &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4    &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
 &kp LCTRL    &out OUT_USB  &out OUT_BLE  &trans          &trans        &trans          &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
                                          &kp LGUI        &trans        &kp SPACE       &kp RET    &trans     &kp RALT
