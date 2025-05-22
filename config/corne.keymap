@@ -30,6 +30,9 @@
             require-prior-idle-ms = <125>;
             flavor = "tap-preferred";
         };
+     &sl {
+    release-after-ms = <2000>;
+};
     };
 
     macros {
@@ -59,9 +62,7 @@
         };
     };
 
-&sl {
-    release-after-ms = <2000>;
-};
+
     keymap {
         compatible = "zmk,keymap";
 
