@@ -228,6 +228,11 @@
             bindings = <&kp DE_PIPE>;
             key-positions = <24 33 34>;
         };
+
+        ctraltdel {
+            bindings = <&kp LEFT_ALT>;
+            key-positions = <12 36>;
+        };
     };
 };
 
