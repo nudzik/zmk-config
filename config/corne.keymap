@@ -32,6 +32,14 @@
             require-prior-idle-ms = <125>;
             flavor = "tap-preferred";
         };
+
+        hw_soft_off: hw_soft_off {
+            compatible = "zmk,behavior-soft-off";
+            label = "HW_SOFT_OFF";
+            #binding-cells = <0>;
+            hold-time-ms = <2000>;
+            split-peripheral-off-on-press;
+        };
     };
 
     macros {
@@ -232,6 +240,11 @@
         ctraltdel {
             bindings = <&kp LEFT_ALT>;
             key-positions = <12 36>;
+        };
+
+        soft_off {
+            bindings = <&hw_soft_off>;
+            key-positions = <24 29 10>;
         };
     };
 };
