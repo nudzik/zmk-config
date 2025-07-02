@@ -145,7 +145,7 @@
         };
 
         raise_de {
-            display-name = "raise_layer";
+            display-name = "raise_de";
             bindings = <
 &kp TAB    &kp EXCL           &kp AT           &kp HASH    &kp DLLR  &kp PRCNT        &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR          &kp BSPC
 &kp LSHFT  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_MUTE  &kp HOME  &kp PAGE_UP      &as MINUS  &as EQUAL  &kp LBKT   &kp RBKT  &kp DE_BACKSLASH  &kp GRAVE
