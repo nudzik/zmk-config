@@ -170,7 +170,7 @@
                                                &kp LGUI    &trans    &kp SPACE        &kp RET    &trans     &kp RALT
             >;
 
-            label = "raise_de";
+        
         };
     };
 };
