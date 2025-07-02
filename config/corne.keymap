@@ -15,8 +15,9 @@
 #define DE 2
 #define RAISE 3
 #define LOWER 4
-#define ADJUST 5
-#define RAISE_DE 6
+#define RAISE_DE 5
+#define ADJUST 6
+
 
 &sl { release-after-ms = <2000>; };
 
