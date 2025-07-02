@@ -160,7 +160,9 @@
             >;
         };
 
-        extra_1 { status = "reserved"; };
+        raise_de { 
+            display-name = "raise_de"; 
+};
     };
 };
 
