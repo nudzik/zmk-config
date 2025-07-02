@@ -13,9 +13,10 @@
 #define DEFAULT 0
 #define GAME 1
 #define DE 2
-#define RISE 3
+#define RAISE 3
 #define LOWER 4
 #define ADJUST 5
+#define RAISE_DE 6
 
 &sl { release-after-ms = <2000>; };
 
