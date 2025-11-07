@@ -14,9 +14,12 @@
 #define DEFAULT 0
 #define GAME 1
 #define DE 2
-#define RISE 3
+#define RAISE 3
 #define LOWER 4
-#define ADJUST 5
+#define RAISE_DE 5
+#define ADJUST 6
+
+&sl { release-after-ms = <2000>; };
 
 / {
     behaviors {
@@ -30,6 +33,14 @@
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
             flavor = "tap-preferred";
+        };
+
+        hw_soft_off: hw_soft_off {
+            compatible = "zmk,behavior-soft-off";
+            label = "HW_SOFT_OFF";
+            #binding-cells = <0>;
+            hold-time-ms = <2000>;
+            split-peripheral-off-on-press;
         };
     };
 
@@ -76,27 +87,27 @@
 &as TAB    &as Q  &as W  &as E     &as R  &as T        &as Z    &as U  &as I      &as O    &as P     &kp BSPC
 &kp LSHFT  &as A  &as S  &as D     &as F  &as G        &as H    &as J  &as K      &as L    &as SEMI  &as SQT
 &kp LCTRL  &as Y  &as X  &as C     &as V  &as B        &as N    &as M  &as COMMA  &as DOT  &as FSLH  &kp RET
-                         &kp LGUI  &mo 3  &kp SPACE    &kp RET  &mo 4  &kp RALT
+                         &kp LGUI  &sl 3  &kp SPACE    &kp RET  &sl 4  &kp RALT
             >;
         };
 
         game {
             display-name = "game";
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R   &kp T        &kp Z    &kp U   &kp I      &kp O    &kp P     &kp BSPC
-&kp LSHFT  &kp A  &kp S  &kp D     &kp F   &kp G        &kp H    &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Y  &kp X  &kp C     &kp V   &kp B        &kp N    &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp RET
-                         &kp LGUI  &trans  &kp SPACE    &kp RET  &trans  &kp RALT
+&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Z    &kp U   &kp I      &kp O    &kp P     &kp BSPC
+&kp LSHFT  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL  &kp Y  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp RET
+                         &kp LGUI  &mo 6  &kp SPACE    &kp RET  &trans  &kp RALT
             >;
         };
 
         de_layer {
             display-name = "de_layer";
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E     &kp R   &kp T        &kp Z    &kp U   &kp I      &kp O    &kp P      &kp BSPC
-&kp LEFT_SHIFT  &kp A  &kp S  &kp D     &kp F   &kp G        &kp H    &kp J   &kp K      &kp L    &kp SEMI   &kp APOS
-&kp LCTRL       &kp Y  &kp X  &kp C     &kp V   &kp B        &kp N    &kp M   &kp COMMA  &kp DOT  &kp MINUS  &kp RET
-                              &kp LGUI  &trans  &kp SPACE    &kp RET  &trans  &kp RALT
+&kp TAB         &kp Q  &kp W  &kp E     &kp R   &kp T        &kp Z    &kp U  &kp I      &kp O    &kp P         &kp BSPC
+&kp LEFT_SHIFT  &kp A  &kp S  &kp D     &kp F   &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI      &kp APOS
+&kp LCTRL       &kp Y  &kp X  &kp C     &kp V   &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp DE_MINUS  &kp RET
+                              &kp LGUI  &trans  &kp SPACE    &kp RET  &mo 5  &kp RALT
             >;
         };
 
@@ -110,10 +121,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB         &as N1  &as N2  &as N3    &as N4  &as N5    &as N6    &as N7   &as N8    &as N9     &as N0      &kp BSPC
-&kp LEFT_SHIFT  &kp F1  &kp F2  &kp F3    &kp F4  &kp F5          &kp LEFT  &kp UP   &kp DOWN  &kp RIGHT  &kp INSERT  &kp PRINTSCREEN
-&kp LCTRL       &kp F6  &kp F7  &kp F8    &kp F9  &kp F10         &kp F11   &kp F12  &trans    &trans     &trans      &kp DEL
-                                &kp LGUI  &trans  &kp SPACE       &kp RET   &trans   &kp RALT
+&kp TAB         &as N1  &as N2  &as N3    &as N4  &as N5       &as N6    &as N7   &as N8    &as N9     &as N0      &kp BSPC
+&kp LEFT_SHIFT  &kp F1  &kp F2  &kp F3    &kp F4  &kp F5       &kp LEFT  &kp UP   &kp DOWN  &kp RIGHT  &kp INSERT  &kp PRINTSCREEN
+&kp LCTRL       &kp F6  &kp F7  &kp F8    &kp F9  &kp F10      &kp F11   &kp F12  &trans    &trans     &trans      &kp DEL
+                                &kp LGUI  &trans  &kp SPACE    &kp RET   &trans   &kp RALT
             >;
         };
 
@@ -134,6 +145,28 @@
             >;
         };
 
+        raise_de {
+            display-name = "raise_de";
+            bindings = <
+&kp TAB    &kp EXCL           &kp AT           &kp HASH    &kp DLLR  &kp PRCNT        &kp CARET  &kp AMPS   &kp ASTRK  &kp DE_SZ  &kp GRAVE         &kp BSPC
+&kp LSHFT  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_MUTE  &kp HOME  &kp PAGE_UP      &as MINUS  &as EQUAL  &kp LBKT   &kp RBKT   &kp DE_BACKSLASH  &kp GRAVE
+&kp LCTRL  &trans             &trans           &trans      &kp END   &kp PAGE_DOWN    &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC   &kp DE_LT         &kp TILDE
+                                               &kp LGUI    &trans    &kp SPACE        &kp RET    &trans     &kp RALT
+            >;
+        };
+
+        lower_game {
+            display-name = "lower_layer";
+            bindings = <
+&kp TAB         &kp N1  &kp N2  &kp N3    &kp N4  &kp N5       &kp N6    &kp N7   &kp N8    &kp N9     &kp N0      &kp BSPC
+&kp LEFT_SHIFT  &kp F1  &kp F2  &kp F3    &kp F4  &kp F5       &kp LEFT  &kp UP   &kp DOWN  &kp RIGHT  &kp INSERT  &kp PRINTSCREEN
+&kp LCTRL       &kp F6  &kp F7  &kp F8    &kp F9  &kp F10      &kp F11   &kp F12  &trans    &trans     &trans      &kp DEL
+                                &kp LGUI  &trans  &kp SPACE    &kp RET   &trans   &kp RALT
+            >;
+
+            label = "lower_game";
+        };
+
         adjust_layer {
             display-name = "adjust_layer";
 
@@ -150,8 +183,6 @@
                                          &kp LGUI        &trans        &kp SPACE       &kp RET    &trans     &kp RALT
             >;
         };
-
-        extra_1 { status = "reserved"; };
     };
 };
 
@@ -227,6 +258,16 @@
             bindings = <&kp DE_PIPE>;
             key-positions = <24 33 34>;
         };
+
+        ctraltdel {
+            bindings = <&kp LEFT_ALT>;
+            key-positions = <12 36>;
+        };
+
+        soft_off {
+            bindings = <&hw_soft_off>;
+            key-positions = <24 29 10>;
+        };
     };
 };
 
@@ -236,7 +277,7 @@
 
         tri_layer {
             if-layers = <3 4>;
-            then-layer = <5>;
+            then-layer = <7>;
         };
     };
 };
