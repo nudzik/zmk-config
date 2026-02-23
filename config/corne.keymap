@@ -68,6 +68,13 @@
                 <&macro_release>,
                 <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
         };
+
+        ctrl_alt_del: ctrl_alt_del {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp LALT &kp DEL>;
+            label = "CTRL_ALT_DEL";
+        };
     };
 
     keymap {
@@ -258,7 +265,7 @@
             key-positions = <24 33 34>;
         };
 
-        ctraltdel {
+        leftalt {
             bindings = <&kp LEFT_ALT>;
             key-positions = <12 36>;
         };
@@ -266,6 +273,11 @@
         soft_off {
             bindings = <&hw_soft_off>;
             key-positions = <24 29 10>;
+        };
+
+        ctrlaltdel {
+            bindings = <&kp LEFT_ALT>;
+            key-positions = <12 36>;
         };
     };
 };
