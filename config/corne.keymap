@@ -14,7 +14,7 @@
 // Set your default OS strategy (choose ONE of these):
 // #define ZMK_UNICODE_HOST_OS OS_LINUX   // For Linux / IBus
 // #define ZMK_UNICODE_HOST_OS OS_MAC     // For macOS (Unicode Hex Input)
-// #define ZMK_UNICODE_HOST_OS OS_WIN     // For Windows
+#define ZMK_UNICODE_HOST_OS OS_WIN     // For Windows
 
 #define DEFAULT 0
 #define GAME 1
@@ -80,6 +80,23 @@
             #binding-cells = <0>;
             bindings = <&kp LCTRL &kp LALT &kp DEL>;
             label = "CTRL_ALT_DEL";
+        };
+    // Backslash: \ (U+005C)
+        uc_bslh: uc_bslh {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <30>;
+            wait-ms = <30>;
+            bindings = <&macro_tap &uc 0x005C>;
+        };
+
+        // Pipe: | (U+007C)
+        uc_pipe: uc_pipe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <30>;
+            wait-ms = <30>;
+            bindings = <&macro_tap &uc 0x007C>;
         };
     };
 
@@ -162,7 +179,7 @@
             bindings = <
 &kp TAB    &kp EXCL           &kp AT           &kp HASH    &kp DLLR  &kp PRCNT        &kp CARET  &kp AMPS   &kp ASTRK  &kp DE_SZ  &kp GRAVE         &kp BSPC
 &kp LSHFT  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_MUTE  &kp HOME  &kp PAGE_UP      &as MINUS  &as EQUAL  &kp LBKT   &kp RBKT   &kp DE_BACKSLASH  &kp GRAVE
-&kp LCTRL  &kp DE_COLON       &trans           &trans      &kp END   &kp PAGE_DOWN    &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC   &kp DE_LT         &kp TILDE
+&kp LCTRL  &uc_pipe       &uc_bslh           &trans      &kp END   &kp PAGE_DOWN    &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC   &kp DE_LT         &kp TILDE
                                                &kp LGUI    &trans    &kp SPACE        &kp RET    &trans     &kp RALT
             >;
         };
